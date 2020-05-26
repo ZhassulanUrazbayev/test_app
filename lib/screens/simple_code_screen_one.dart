@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:testenviroment/widgets/curve_sample.dart';
 import 'package:testenviroment/widgets/dash_line.dart';
@@ -10,6 +11,10 @@ class TestScreen extends StatefulWidget {
 }
 
 class _TestScreenState extends State<TestScreen> {
+
+  final String assetNameRightArrow = 'assets/rightArrowIcon.svg';
+  final String assetNameCloseIcon = 'assets/closeIcon.svg';
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -24,9 +29,10 @@ class _TestScreenState extends State<TestScreen> {
               height: 40.0,
               width: 40.0,
               child: new Center(
-                child: Icon(
-                  Icons.close,
-                  color: Color(0xff054BB5),
+                child: SvgPicture.asset(
+                    assetNameCloseIcon,
+                    color: Color(0xff054BB5),
+                    semanticsLabel: 'A red up arrow'
                 ),
               ),
               decoration: new BoxDecoration(
@@ -92,7 +98,14 @@ class _TestScreenState extends State<TestScreen> {
                           )
                         ],
                       ),
-                      new Icon(Icons.keyboard_arrow_right)
+                      new Padding(
+                        padding: EdgeInsets.only(right: 8.0),
+                        child: new SvgPicture.asset(
+                            assetNameRightArrow,
+                            color: Color(0xff054BB5),
+                            semanticsLabel: 'A red up arrow'
+                        ),
+                      ),
                     ],
                   ),
                   new Padding(
@@ -176,10 +189,6 @@ class _TestScreenState extends State<TestScreen> {
                   ),
                 ],
               ),
-            ),
-            CustomPaint(
-              size: Size(10.0, 30.0),
-              painter: CurvedPainter(10.0, 15.0),
             ),
           ],
         ),
