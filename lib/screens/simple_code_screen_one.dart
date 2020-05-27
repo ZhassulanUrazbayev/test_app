@@ -251,8 +251,8 @@ class _TestScreenState extends State<TestScreen> {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
-                    spreadRadius: 1,
+                    color: Colors.grey.withOpacity(0.3),
+                    spreadRadius: 3,
                     blurRadius: 4,
                     offset: Offset(0, 5), // changes position of shadow
                   ),
