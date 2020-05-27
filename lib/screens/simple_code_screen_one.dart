@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:intl/intl.dart';
-import 'package:testenviroment/widgets/curve_sample.dart';
+import 'package:testenviroment/widgets/curve_left.dart';
+import 'package:testenviroment/widgets/curve_right.dart';
 import 'package:testenviroment/widgets/dash_line.dart';
 
 class TestScreen extends StatefulWidget {
@@ -11,7 +11,6 @@ class TestScreen extends StatefulWidget {
 }
 
 class _TestScreenState extends State<TestScreen> {
-
   final String assetNameRightArrow = 'assets/rightArrowIcon.svg';
   final String assetNameCloseIcon = 'assets/closeIcon.svg';
 
@@ -29,11 +28,8 @@ class _TestScreenState extends State<TestScreen> {
               height: 40.0,
               width: 40.0,
               child: new Center(
-                child: SvgPicture.asset(
-                    assetNameCloseIcon,
-                    color: Color(0xff054BB5),
-                    semanticsLabel: 'A red up arrow'
-                ),
+                child: SvgPicture.asset(assetNameCloseIcon,
+                    color: Color(0xff054BB5), semanticsLabel: 'A red up arrow'),
               ),
               decoration: new BoxDecoration(
                 borderRadius: BorderRadius.circular(30.0),
@@ -52,26 +48,12 @@ class _TestScreenState extends State<TestScreen> {
             new SizedBox(
               height: 30.0,
             ),
-            new Container(
-              height: 450.0,
-              padding: new EdgeInsets.all(16.0),
-              decoration: new BoxDecoration(
-                  borderRadius:
-                      BorderRadius.vertical(top: Radius.circular(25.0)),
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 4,
-                      offset: Offset(0, 4), // changes position of shadow
-                    ),
-                  ]),
-              child: new Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  new Row(
+            new Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  child: new Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       new Row(
@@ -100,19 +82,99 @@ class _TestScreenState extends State<TestScreen> {
                       ),
                       new Padding(
                         padding: EdgeInsets.only(right: 8.0),
-                        child: new SvgPicture.asset(
-                            assetNameRightArrow,
+                        child: new SvgPicture.asset(assetNameRightArrow,
                             color: Color(0xff054BB5),
-                            semanticsLabel: 'A red up arrow'
-                        ),
+                            semanticsLabel: 'A right arrow'),
                       ),
                     ],
                   ),
-                  new Padding(
-                    padding: EdgeInsets.only(
-                        top: 8.0, bottom: 6.0),
-                    child: const MySeparator(color: Color(0xffD9D9D9)),
+                  padding: EdgeInsets.only(right: 16.0, left: 16.0, top: 16.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(25.0),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 1,
+                        offset: Offset(1, 2), // changes position of shadow
+                      ),
+                    ],
                   ),
+                )
+              ],
+            ),
+            new Row(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                new Container(
+                  width: 10.0,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 1,
+                        blurRadius: 2,
+                        offset: Offset(0, 5), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: CustomPaint(
+                    size: Size(10.0, 24.0), //2
+                    painter: LeftCurvePainter(
+                        color: Colors.white, avatarRadius: 5.0), //3
+                  ),
+                ),
+                new Flexible(
+                  child: Container(
+                    height: 24.0,
+                    padding: EdgeInsets.only(bottom: 10.0),
+                    alignment: Alignment.center,
+                    color: Colors.white,
+                    child: const MySeparator(
+                      color: Color(0xffD9D9D9),
+                    ),
+                  ),
+                ),
+                new Container(
+                  width: 10.0,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 0,
+                        blurRadius: 1,
+                        offset: Offset(1, 1), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: CustomPaint(
+                    size: Size(10.0, 24.0), //2
+                    painter: RightCurvePainter(
+                        color: Colors.white, avatarRadius: 5.0), //3
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.2),
+                    spreadRadius: 2,
+                    blurRadius: 2,
+                    offset: Offset(1, 8), // changes position of shadow
+                  ),
+                ],
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
                   new ButtonTheme(
                     minWidth: double.infinity,
                     child: new MaterialButton(
@@ -173,7 +235,14 @@ class _TestScreenState extends State<TestScreen> {
             new Container(
               height: 50,
               child: Center(
-                child: Text("Спасибо за покупку", style: new TextStyle(color: Color(0xff777777), fontWeight: FontWeight.bold, fontSize: 17.0,),),
+                child: Text(
+                  "Спасибо за покупку",
+                  style: new TextStyle(
+                    color: Color(0xff777777),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17.0,
+                  ),
+                ),
               ),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -182,8 +251,8 @@ class _TestScreenState extends State<TestScreen> {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 2,
+                    color: Colors.grey.withOpacity(0.2),
+                    spreadRadius: 1,
                     blurRadius: 4,
                     offset: Offset(0, 5), // changes position of shadow
                   ),
