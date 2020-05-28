@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testenviroment/screens/add_card_first.dart';
 import 'package:testenviroment/screens/simple_code_screen_one.dart';
 import 'package:testenviroment/screens/test_page.dart';
 import 'package:testenviroment/widgets/curve_example.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: TestScreen(),
+      home: AddCardFirstScreen(),
     );
   }
 }
