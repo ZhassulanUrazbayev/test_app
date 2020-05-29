@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:testenviroment/screens/add_card_first.dart';
-import 'package:testenviroment/screens/simple_code_screen_one.dart';
-import 'package:testenviroment/screens/test_page.dart';
-import 'package:testenviroment/widgets/curve_example.dart';
-import 'package:testenviroment/widgets/curve_sample.dart';
+import 'bloc/card_bloc.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,6 +9,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,7 +17,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: AddCardFirstScreen(),
+      home: BlocProvider(
+        create: (context) => CardsBloc(),
+        child: AddCardFirstScreen(),
+      ),
     );
   }
 }
