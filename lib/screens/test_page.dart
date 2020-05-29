@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:testenviroment/widgets/curve_left.dart';
 import 'package:testenviroment/widgets/curve_right.dart';
 import 'package:testenviroment/widgets/curve_sample.dart';

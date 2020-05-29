@@ -5,12 +5,7 @@ import 'package:testenviroment/bloc/card_event.dart';
 import 'package:testenviroment/bloc/card_state.dart';
 import 'package:testenviroment/bloc/card_bloc.dart';
 
-class AddCardFirstScreen extends StatefulWidget {
-  @override
-  _AddCardFirstScreenState createState() => _AddCardFirstScreenState();
-}
-
-class _AddCardFirstScreenState extends State<AddCardFirstScreen> {
+class AddCardFirstScreen extends StatelessWidget {
   final String assetNameLeftArrow = 'assets/Arrow.svg';
 
   @override

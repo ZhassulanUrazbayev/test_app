@@ -14,18 +14,14 @@ class CardsRepository {
   }
 
   Future<List<CardItem>> selectCard(int index, CardItem item) async {
-    List<CardItem> updatedList = <CardItem>[];
 
     for( int i = 0 ; i < cardsList.length; i++ ) {
       if(i == index){
-        updatedList.add(CardItem(cardNumber: cardsList[i].cardNumber, isSelected: !cardsList[i].isSelected));
+        cardsList[i] = CardItem(cardNumber: cardsList[i].cardNumber, isSelected: !cardsList[i].isSelected);
       }else{
-        updatedList.add(CardItem(cardNumber: cardsList[i].cardNumber, isSelected: false));
+        cardsList[i] = CardItem(cardNumber: cardsList[i].cardNumber, isSelected: false);
       }
     }
-
-    cardsList.clear();
-    cardsList.addAll(updatedList);
 
     return cardsList;
   }

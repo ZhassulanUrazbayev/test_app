@@ -1,5 +1,4 @@
 import "package:flutter/material.dart";
-import 'package:flutter/services.dart';
 import 'dart:math';
 
 const CURVE_HEIGHT = 160.0;
