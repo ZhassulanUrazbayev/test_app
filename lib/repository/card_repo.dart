@@ -1,29 +1,35 @@
 import 'package:testenviroment/model/card_model.dart';
 
 class CardsRepository {
-  List<CardItem> cardsList = <CardItem>[];
+  List<CardItem> _cardsList = <CardItem>[];
+  int _lastIndex = -1;
 
   Future<List<CardItem>> addCard() async {
-    cardsList.add(CardItem(cardNumber: 9982, isSelected: false));
-    return cardsList;
+    _cardsList.add(CardItem(cardNumber: 9982, isSelected: false));
+    return _cardsList;
   }
 
   Future<List<CardItem>> deletedCard(int index) async {
-    cardsList.removeAt(index);
-    return cardsList;
+    _cardsList.removeAt(index);
+    return _cardsList;
   }
 
   Future<List<CardItem>> selectCard(int index, CardItem item) async {
 
-    for( int i = 0 ; i < cardsList.length; i++ ) {
-      if(i == index){
-        cardsList[i] = CardItem(cardNumber: cardsList[i].cardNumber, isSelected: !cardsList[i].isSelected);
-      }else{
-        cardsList[i] = CardItem(cardNumber: cardsList[i].cardNumber, isSelected: false);
+    if (_lastIndex == -1) {
+      _cardsList[index].isSelected = !_cardsList[index].isSelected;
+    } else {
+      if (index == _lastIndex)
+        _cardsList[index].isSelected = !_cardsList[index].isSelected;
+      else {
+        _cardsList[_lastIndex].isSelected = false;
+        _cardsList[index].isSelected = true;
       }
     }
 
-    return cardsList;
+    _lastIndex = index;
+
+    return _cardsList;
   }
 
 }
