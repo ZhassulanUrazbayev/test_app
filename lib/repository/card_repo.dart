@@ -5,7 +5,7 @@ class CardsRepository {
   int _lastIndex = -1;
 
   Future<List<CardItem>> addCard() async {
-    _cardsList.add(CardItem(cardNumber: 9982, isSelected: false));
+    _cardsList.add(CardItem(cardNumber: "9982", isSelected: false));
     return _cardsList;
   }
 

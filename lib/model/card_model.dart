@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class CardItem extends Equatable {
-  int cardNumber;
+  String cardNumber;
   bool isSelected;
 
   CardItem({this.cardNumber, this.isSelected});

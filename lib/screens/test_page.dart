@@ -1,9 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rounded_progress_bar/flutter_rounded_progress_bar.dart';
+import 'package:flutter_rounded_progress_bar/rounded_progress_bar_style.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:testenviroment/model/pay_plan_month_model.dart';
 import 'package:testenviroment/widgets/curve_left.dart';
 import 'package:testenviroment/widgets/curve_right.dart';
 import 'package:testenviroment/widgets/curve_sample.dart';
 import 'dart:math' as math;
+
+import 'package:testenviroment/widgets/dash_line.dart';
+import 'package:testenviroment/widgets/dash_line_for_sum.dart';
 
 class TestPage extends StatefulWidget {
   @override
@@ -11,45 +18,106 @@ class TestPage extends StatefulWidget {
 }
 
 class _TestPageState extends State<TestPage> {
+  final String assetNameLeftArrow = 'assets/Arrow.svg';
+  final String assetNameLeftArrowGrey = 'assets/rightArrowGrey.svg';
+  final String assetNameCheckGreenIcon = 'assets/checkGreenIc.svg';
+  final String assetNameCloseGrey = 'assets/closeGrey.svg';
+  final String assetNameSwipeHandler = 'assets/swipeHandler.svg';
+  bool lights = false;
+
+  int selectedYear = 2;
+
+  int selectedMonth = 6;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+      Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: Container(
-          height: 200.0,
-          width: 200.0,
-          child: Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                CustomPaint(
-                  size: Size(10.0, 30.0),
-                  painter: CurvedPainter(8.0, 15.0),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+              RaisedButton(
+                onPressed: (){
+                  Navigator.of(context).pushNamed('/currentPaymentScreen');
+                },
+                child: Text("Push me"),
+              ),
+              Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    CustomPaint(
+                      size: Size(10.0, 30.0),
+                      painter: CurvedPainter(8.0, 15.0),
+                    ),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    CustomPaint(
+                      size: Size(20.0, 30.0),
+                      painter: CurvedPainterLeft(10.0, 15.0),
+                    ),
+                    SizedBox(
+                      width: 20.0,
+                    ),
+                    CustomPaint(
+                      size: Size(10.0, 15.0), //2
+                      painter: LeftCurvePainter(
+                          color: Colors.blue, avatarRadius: 5.0), //3
+                    ),
+                    CustomPaint(
+                      size: Size(10.0, 15.0), //2
+                      painter: RightCurvePainter(
+                          color: Colors.blue, avatarRadius: 5.0), //3
+                    ),
+                  ],
                 ),
-                SizedBox(
-                  width: 10.0,
+              ),
+        ],
+      ),
+    );
+  }
+
+  Widget overallSum(double sum) {
+    return Container(
+      color: Colors.white,
+      child: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: Text(
+                "К оплате",
+                style: TextStyle(
+                  fontSize: 15.0,
+                  letterSpacing: -0.165,
+                  color: Color(0xff000000),
                 ),
-                CustomPaint(
-                  size: Size(20.0, 30.0),
-                  painter: CurvedPainterLeft(10.0, 15.0),
-                ),
-                SizedBox(
-                  width: 20.0,
-                ),
-                CustomPaint(
-                  size: Size(10.0, 15.0), //2
-                  painter: LeftCurvePainter(
-                      color: Colors.blue, avatarRadius: 5.0), //3
-                ),
-                CustomPaint(
-                  size: Size(10.0, 15.0), //2
-                  painter: RightCurvePainter(
-                      color: Colors.blue, avatarRadius: 5.0), //3
-                ),
-              ],
+              ),
             ),
+            Text(
+              "$sum ₸",
+              style: TextStyle(
+                fontSize: 15.0,
+                letterSpacing: -0.165,
+                color: Color(0xff000000),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget divider() {
+    return new Container(
+      height: 1.0,
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            color: Color(0xffCBCBCB),
           ),
         ),
       ),

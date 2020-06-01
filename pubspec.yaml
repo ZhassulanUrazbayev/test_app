@@ -17,6 +17,7 @@ dependencies:
   bloc: ^4.0.0
   flutter_bloc: ^4.0.0
   equatable: ^1.0.0
+  flutter_rounded_progress_bar: 0.1.1
 
 dev_dependencies:
   flutter_test:
@@ -29,6 +30,13 @@ flutter:
     - assets/rightArrowIcon.svg
     - assets/closeIcon.svg
     - assets/Arrow.svg
+    - assets/rightArrowGrey.svg
+    - assets/bottomArrow.svg
+    - assets/topArrow.svg
+    - assets/closeGrey.svg
+    - assets/checkGreenIc.svg
+    - assets/swipeHandler.svg
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
