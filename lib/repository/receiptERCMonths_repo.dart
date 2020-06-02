@@ -33,11 +33,14 @@ class ReceiptERCMonthsRepository {
   ];
 
   Future<List<ReceiptERCMonthsItem>> selectMonth(MonthItem item, int yearIndex) async {
-    for (int i = 0; i < _receiptERCMonthsItems[yearIndex].months.length; i++) {
-      if(_receiptERCMonthsItems[yearIndex].months[i].monthName == item.monthName){
-        _receiptERCMonthsItems[yearIndex].months[i].isSelected = !_receiptERCMonthsItems[yearIndex].months[i].isSelected;
-      }else{
-        _receiptERCMonthsItems[yearIndex].months[i].isSelected = false;
+
+    if(item.isAvailableMonth){
+      for (int i = 0; i < _receiptERCMonthsItems[yearIndex].months.length; i++) {
+        if(_receiptERCMonthsItems[yearIndex].months[i].monthName == item.monthName && item.isAvailableMonth){
+          _receiptERCMonthsItems[yearIndex].months[i].isSelected = !_receiptERCMonthsItems[yearIndex].months[i].isSelected;
+        }else{
+          _receiptERCMonthsItems[yearIndex].months[i].isSelected = false;
+        }
       }
     }
 

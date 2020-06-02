@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:testenviroment/model/card_model.dart';
 import 'package:testenviroment/model/receiptERC_model.dart';
 
 abstract class ReceiptERCMonthsState extends Equatable {
@@ -36,9 +35,9 @@ class ReceiptERCMonthsEmpty extends ReceiptERCMonthsState {
       MonthItem(monthName: "Июль", isSelected: false, isAvailableMonth: false),
       MonthItem(monthName: "Август", isSelected: false, isAvailableMonth: false),
       MonthItem(monthName: "Сентябрь", isSelected: false, isAvailableMonth: false),
-      MonthItem(monthName: "Окрябрь", isSelected: false, isAvailableMonth: false),
-      MonthItem(monthName: "Ноябрь", isSelected: false, isAvailableMonth: false),
-      MonthItem(monthName: "Декабрь", isSelected: false, isAvailableMonth: false),
+      MonthItem(monthName: "Окрябрь", isSelected: false, isAvailableMonth: true),
+      MonthItem(monthName: "Ноябрь", isSelected: false, isAvailableMonth: true),
+      MonthItem(monthName: "Декабрь", isSelected: false, isAvailableMonth: true),
     ])
   ];
 

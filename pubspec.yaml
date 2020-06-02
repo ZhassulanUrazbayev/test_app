@@ -36,6 +36,8 @@ flutter:
     - assets/closeGrey.svg
     - assets/checkGreenIc.svg
     - assets/swipeHandler.svg
+    - assets/documentIc.svg
+    - assets/icFile.svg
 
   #   - images/a_dot_ham.jpeg
 

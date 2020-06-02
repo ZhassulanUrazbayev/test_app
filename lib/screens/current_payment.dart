@@ -69,7 +69,7 @@ class _CurrentPaymentScreenState extends State<CurrentPaymentScreen> {
                   color: Color(0xffF1F1F2)),
               child: Row(
                 children: <Widget>[
-                  Expanded(
+                  Flexible(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -89,6 +89,7 @@ class _CurrentPaymentScreenState extends State<CurrentPaymentScreen> {
                         )
                       ],
                     ),
+                    fit: FlexFit.tight,
                   ),
                   SvgPicture.asset(assetNameCloseGrey,
                       semanticsLabel: 'A red up arrow')
@@ -135,7 +136,7 @@ class _CurrentPaymentScreenState extends State<CurrentPaymentScreen> {
                 SizedBox(
                   width: 8.0,
                 ),
-                Expanded(
+                Flexible(
                   child: Text(
                     "Я принимаю условия соглашения",
                     style: TextStyle(
@@ -189,7 +190,7 @@ class _CurrentPaymentScreenState extends State<CurrentPaymentScreen> {
             style: TextStyle(
                 fontSize: 15.0, letterSpacing: 0.41, color: Color(0xff777777)),
           ),
-          Expanded(child: MySeparatorForSum()),
+          Flexible(child: MySeparatorForSum()),
           Text(
             "$sum ₸",
             style: TextStyle(

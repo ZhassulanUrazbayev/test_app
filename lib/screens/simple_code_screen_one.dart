@@ -13,6 +13,7 @@ class TestScreen extends StatefulWidget {
 class _TestScreenState extends State<TestScreen> {
   final String assetNameRightArrow = 'assets/rightArrowIcon.svg';
   final String assetNameCloseIcon = 'assets/closeIcon.svg';
+  final String assetNameDocIcon = 'assets/icFile.svg';
 
   @override
   Widget build(BuildContext context) {
@@ -39,58 +40,109 @@ class _TestScreenState extends State<TestScreen> {
           )
         ],
       ),
-      body: new Padding(
-        padding: EdgeInsets.all(16.0),
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            new SizedBox(
-              height: 30.0,
-            ),
-            new Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  child: new Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      new Row(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          SizedBox(
+            height: 30.0,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: Container(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(25.0),
+                      ),
+                    ),
+                    child: ButtonTheme(
+                      minWidth: double.infinity,
+                      child: Column(
                         children: <Widget>[
-                          new Container(
-                            height: 40.0,
-                            width: 40.0,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15.0),
-                              color: Colors.black,
+                          Padding(
+                            padding: EdgeInsets.only(
+                                right: 16.0, left: 16.0, top: 16.0),
+                            child: MaterialButton(
+                              onPressed: () {},
+                              height: 24.0,
+                              color: Color(0xff71BA2D),
+                              child: Text(
+                                "Успешная оплата",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 13.0,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
                             ),
                           ),
-                          new SizedBox(
-                            width: 16.0,
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Container(
+                                width: 10.0,
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.2),
+                                      spreadRadius: 1,
+                                      blurRadius: 2,
+                                      offset: Offset(
+                                          0, 5), // changes position of shadow
+                                    ),
+                                  ],
+                                ),
+                                child: CustomPaint(
+                                  size: Size(10.0, 24.0), //2
+                                  painter: LeftCurvePainter(
+                                      color: Colors.white, avatarRadius: 5.0), //3
+                                ),
+                              ),
+                              Flexible(
+                                child: Container(
+                                  height: 24.0,
+                                  padding: EdgeInsets.only(bottom: 10.0),
+                                  alignment: Alignment.center,
+                                  color: Colors.white,
+                                  child: const MySeparator(
+                                    color: Color(0xffD9D9D9),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: 10.0,
+                                decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey.withOpacity(0.2),
+                                      spreadRadius: 0,
+                                      blurRadius: 1,
+                                      offset: Offset(
+                                          1, 1), // changes position of shadow
+                                    ),
+                                  ],
+                                ),
+                                child: CustomPaint(
+                                  size: Size(10.0, 24.0), //2
+                                  painter: RightCurvePainter(
+                                      color: Colors.white, avatarRadius: 5.0), //3
+                                ),
+                              ),
+                            ],
                           ),
-                          new Container(
-                            width: 180.0,
-                            height: 36.0,
-                            child: new Text(
-                              "Дом модной мебели LUSSO",
-                              style: TextStyle(fontSize: 15.0),
-                              maxLines: 2,
-                            ),
-                          )
                         ],
                       ),
-                      new Padding(
-                        padding: EdgeInsets.only(right: 8.0),
-                        child: new SvgPicture.asset(assetNameRightArrow,
-                            color: Color(0xff054BB5),
-                            semanticsLabel: 'A right arrow'),
-                      ),
-                    ],
+                    ),
                   ),
-                  padding: EdgeInsets.only(right: 16.0, left: 16.0, top: 16.0),
+//                  padding: EdgeInsets.only(right: 16.0, left: 16.0, top: 16.0),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.transparent,
                     borderRadius: BorderRadius.vertical(
                       top: Radius.circular(25.0),
                     ),
@@ -99,192 +151,198 @@ class _TestScreenState extends State<TestScreen> {
                         color: Colors.grey.withOpacity(0.2),
                         spreadRadius: 2,
                         blurRadius: 1,
-                        offset: Offset(1, 2), // changes position of shadow
+                        offset: Offset(0, 1), // changes position of shadow
                       ),
+                    ],
+                  ),
+                ),
+              )
+            ],
+          ),
+//          Row(
+//            mainAxisSize: MainAxisSize.min,
+//            children: <Widget>[
+//              new Container(
+//                width: 10.0,
+//                decoration: BoxDecoration(
+//                  boxShadow: [
+//                    BoxShadow(
+//                      color: Colors.grey.withOpacity(0.2),
+//                      spreadRadius: 1,
+//                      blurRadius: 2,
+//                      offset: Offset(0, 5), // changes position of shadow
+//                    ),
+//                  ],
+//                ),
+//                child: CustomPaint(
+//                  size: Size(10.0, 24.0), //2
+//                  painter: LeftCurvePainter(
+//                      color: Colors.white, avatarRadius: 5.0), //3
+//                ),
+//              ),
+//              new Flexible(
+//                child: Container(
+//                  height: 24.0,
+//                  padding: EdgeInsets.only(bottom: 10.0),
+//                  alignment: Alignment.center,
+//                  color: Colors.white,
+//                  child: const MySeparator(
+//                    color: Color(0xffD9D9D9),
+//                  ),
+//                ),
+//              ),
+//              new Container(
+//                width: 10.0,
+//                decoration: BoxDecoration(
+//                  boxShadow: [
+//                    BoxShadow(
+//                      color: Colors.grey.withOpacity(0.2),
+//                      spreadRadius: 0,
+//                      blurRadius: 1,
+//                      offset: Offset(1, 1), // changes position of shadow
+//                    ),
+//                  ],
+//                ),
+//                child: CustomPaint(
+//                  size: Size(10.0, 24.0), //2
+//                  painter: RightCurvePainter(
+//                      color: Colors.white, avatarRadius: 5.0), //3
+//                ),
+//              ),
+//            ],
+//          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.vertical(
+                      bottom: Radius.circular(25.0),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 2,
+                        offset: Offset(1, 8), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      new SizedBox(
+                        height: 12.0,
+                      ),
+                      totalReportLine(47000),
+                      new SizedBox(
+                        height: 12.0,
+                      ),
+                      reportLineSecondary("С баланса", "118"),
+                      new Padding(
+                        padding: new EdgeInsets.symmetric(vertical: 16.0),
+                        child: new Divider(
+                          height: 1.0,
+                          color: Color(0xffD9D9D9),
+                        ),
+                      ),
+                      reportLineSecondary("С баланса", "118"),
+                      new Padding(
+                        padding: new EdgeInsets.symmetric(vertical: 16.0),
+                        child: new Divider(
+                          height: 1.0,
+                          color: Color(0xffD9D9D9),
+                        ),
+                      ),
+                      reportLineItem("С баланса", "118"),
+                      new SizedBox(
+                        height: 5.0,
+                      ),
+                      reportLineItem("С карты", "46882"),
+                      new SizedBox(
+                        height: 5.0,
+                      ),
+                      new SizedBox(
+                        height: 5.0,
+                      ),
+                      reportLineItem("С карты", "46882"),
+                      new SizedBox(
+                        height: 5.0,
+                      ),
+                      new SizedBox(
+                        height: 5.0,
+                      ),
+                      reportLineItem("С карты", "46882"),
+                      new SizedBox(
+                        height: 5.0,
+                      ),
+                      new SizedBox(
+                        height: 5.0,
+                      ),
+                      reportLineItem("С карты", "46882"),
+                      new SizedBox(
+                        height: 32.0,
+                      ),
+                    ],
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/currentPaymentScreen');
+                  },
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(top: 42.0, bottom: 11.0),
+                        child: SvgPicture.asset(assetNameDocIcon,
+                            height: 20.0,
+                            width: 16.0,
+                            color: Color(0xff054BB5),
+                            semanticsLabel: 'A red up arrow'),
+                      ),
+                      Center(
+                        child: Text(
+                          "Полная квитация",
+                          style: TextStyle(
+                              fontSize: 17.0,
+                              letterSpacing: -0.165,
+                              color: Color(0xff054BB5)),
+                        ),
+                      )
                     ],
                   ),
                 )
               ],
             ),
-            new Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                new Container(
-                  width: 10.0,
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.2),
-                        spreadRadius: 1,
-                        blurRadius: 2,
-                        offset: Offset(0, 5), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  child: CustomPaint(
-                    size: Size(10.0, 24.0), //2
-                    painter: LeftCurvePainter(
-                        color: Colors.white, avatarRadius: 5.0), //3
-                  ),
-                ),
-                new Flexible(
-                  child: Container(
-                    height: 24.0,
-                    padding: EdgeInsets.only(bottom: 10.0),
-                    alignment: Alignment.center,
-                    color: Colors.white,
-                    child: const MySeparator(
-                      color: Color(0xffD9D9D9),
-                    ),
-                  ),
-                ),
-                new Container(
-                  width: 10.0,
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.2),
-                        spreadRadius: 0,
-                        blurRadius: 1,
-                        offset: Offset(1, 1), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  child: CustomPaint(
-                    size: Size(10.0, 24.0), //2
-                    painter: RightCurvePainter(
-                        color: Colors.white, avatarRadius: 5.0), //3
-                  ),
-                ),
-              ],
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
-                    spreadRadius: 2,
-                    blurRadius: 2,
-                    offset: Offset(1, 8), // changes position of shadow
-                  ),
-                ],
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  new ButtonTheme(
-                    minWidth: double.infinity,
-                    child: new MaterialButton(
-                      onPressed: () {},
-                      height: 24.0,
-                      color: Color(0xff71BA2D),
-                      child: new Text(
-                        "Успешная оплата",
-                        style: new TextStyle(
-                          color: Colors.white,
-                          fontSize: 13.0,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ),
-                  ),
-                  reportLine("С баланса", 118),
-                  new SizedBox(
-                    height: 12.0,
-                  ),
-                  reportLine("С карты", 46882),
-                  new Padding(
-                    padding: new EdgeInsets.symmetric(vertical: 16.0),
-                    child: new Divider(
-                      height: 1.0,
-                      color: Color(0xffD9D9D9),
-                    ),
-                  ),
-                  totalReportLine(47000),
-                  new SizedBox(
-                    height: 12.0,
-                  ),
-                  cashbackReportLine(7050),
-                  new Padding(
-                    padding: new EdgeInsets.symmetric(vertical: 16.0),
-                    child: new Divider(
-                      height: 1.0,
-                      color: Color(0xffD9D9D9),
-                    ),
-                  ),
-                  new Text(
-                    "Реквизиты платежа",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  new Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8.0),
-                    child: requisiteTime("11.05.2020", "15:42:50"),
-                  ),
-                  requisiteOrderNumber(2309941),
-                  new SizedBox(
-                    height: 25.0,
-                  ),
-                ],
-              ),
-            ),
-            new Container(
-              height: 50,
-              child: Center(
-                child: Text(
-                  "Спасибо за покупку",
-                  style: new TextStyle(
-                    color: Color(0xff777777),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 17.0,
-                  ),
-                ),
-              ),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.vertical(
-                  bottom: Radius.circular(25.0),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.3),
-                    spreadRadius: 3,
-                    blurRadius: 4,
-                    offset: Offset(0, 5), // changes position of shadow
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
+          ),
+        ],
+      )
     );
   }
 
-  Widget reportLine(String title, int amount) {
-    var amountFormatted = amount
-        .toString()
-        .replaceAllMapped(RegExp(r"\d{3}$"), (match) => " ${match.group(0)}")
-        .trim();
-
+  Widget reportLineItem(String title, String value) {
     return new Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         new Text(
           title,
           style: new TextStyle(
+            fontSize: 15.0,
+            letterSpacing: -0.41,
             color: Color(0xff777777),
           ),
         ),
         new Text(
-          "-$amountFormatted ₸",
+          "$value",
           style: new TextStyle(
+            fontSize: 15.0,
             color: Color(0xff333333),
-            fontWeight: FontWeight.bold,
           ),
         ),
       ],
@@ -310,6 +368,58 @@ class _TestScreenState extends State<TestScreen> {
             color: Color(0xff333333),
             fontWeight: FontWeight.bold,
             fontSize: 24.0,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget reportLineSecondary(String title, String value) {
+    return new Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        new Text(
+          title,
+          style: new TextStyle(
+            fontSize: 15.0,
+            letterSpacing: -0.41,
+            fontWeight: FontWeight.w500,
+            color: Color(0xff777777),
+          ),
+        ),
+        new Text(
+          "$value ₸",
+          style: new TextStyle(
+            fontSize: 15.0,
+            fontWeight: FontWeight.bold,
+            letterSpacing: -0.41,
+            color: Color(0xff333333),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget reportLine(String title, int amount) {
+    var amountFormatted = amount
+        .toString()
+        .replaceAllMapped(RegExp(r"\d{3}$"), (match) => " ${match.group(0)}")
+        .trim();
+
+    return new Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        new Text(
+          title,
+          style: new TextStyle(
+            color: Color(0xff777777),
+          ),
+        ),
+        new Text(
+          "-$amountFormatted ₸",
+          style: new TextStyle(
+            color: Color(0xff333333),
+            fontWeight: FontWeight.bold,
           ),
         ),
       ],

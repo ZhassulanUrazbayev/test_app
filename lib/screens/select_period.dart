@@ -163,15 +163,10 @@ class _SelectPeriodPage extends State<SelectPeriodPage> {
           padding: EdgeInsets.all(17.0),
           child: GestureDetector(
             onTap: (){
-              Navigator.pop(context);
+              Navigator.of(context).pop();
             },
-            child: GestureDetector(
-              onTap: (){
-                Navigator.of(context).pop();
-              },
-              child: SvgPicture.asset(assetNameLeftArrow,
-                  color: Color(0xff054BB5), semanticsLabel: 'A red up arrow'),
-            ),
+            child: SvgPicture.asset(assetNameLeftArrow,
+                color: Color(0xff054BB5), semanticsLabel: 'A red up arrow'),
           ),
         ),
         title: Text(

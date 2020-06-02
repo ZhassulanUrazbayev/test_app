@@ -11,7 +11,9 @@ import 'package:testenviroment/screens/monthPic.dart';
 import 'package:testenviroment/screens/paymentPlan.dart';
 import 'package:testenviroment/screens/receiptERC.dart';
 import 'package:testenviroment/screens/select_period.dart';
-import 'package:testenviroment/screens/test_page.dart';
+import 'package:testenviroment/screens/simple_code_screen_one.dart';
+import 'package:testenviroment/screens/success_check.dart';
+import 'package:testenviroment/screens/success_check_2.dart';
 
 class AppRouter {
   final _cardsBloc = CardsBloc();
@@ -24,11 +26,17 @@ class AppRouter {
       case '/':
         return MaterialPageRoute(
           builder: (_) =>
-//              BlocProvider.value(
-//            value: _receiptERCMonthsBloc,
-//            child:
-            TestPage(),
-//          ),
+              SuccessCheckScreen(),
+        );
+      case '/successCheckScreenSecond':
+        return MaterialPageRoute(
+          builder: (_) =>
+              SuccessCheckScreenSecond(),
+        );
+      case '/testScreen':
+        return MaterialPageRoute(
+          builder: (_) =>
+              TestScreen(),
         );
       case '/currentPaymentScreen':
         return MaterialPageRoute(
