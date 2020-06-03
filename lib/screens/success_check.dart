@@ -5,12 +5,7 @@ import 'package:testenviroment/widgets/curve_left.dart';
 import 'package:testenviroment/widgets/curve_right.dart';
 import 'package:testenviroment/widgets/dash_line.dart';
 
-class SuccessCheckScreen extends StatefulWidget {
-  @override
-  _SuccessCheckScreenState createState() => _SuccessCheckScreenState();
-}
-
-class _SuccessCheckScreenState extends State<SuccessCheckScreen> {
+class SuccessCheckScreen extends StatelessWidget {
   final String assetNameRightArrow = 'assets/rightArrowIcon.svg';
   final String assetNameCloseIcon = 'assets/closeIcon.svg';
   final String assetNameDocIcon = 'assets/icFile.svg';
@@ -149,9 +144,9 @@ class _SuccessCheckScreenState extends State<SuccessCheckScreen> {
               padding: EdgeInsets.symmetric(horizontal: 16.0),
               decoration: BoxDecoration(
                 color: Colors.white,
-                  borderRadius: BorderRadius.vertical(
-                    bottom: Radius.circular(25.0),
-                  ),
+                borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(25.0),
+                ),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.2),

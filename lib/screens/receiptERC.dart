@@ -13,7 +13,7 @@ class ReceiptERSScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ReceiptERCBloc receiptERCBloc =
-        BlocProvider.of<ReceiptERCBloc>(context);
+    BlocProvider.of<ReceiptERCBloc>(context);
 
     return new Scaffold(
       backgroundColor: Color(0xffE5E5E5),
@@ -42,8 +42,8 @@ class ReceiptERSScreen extends StatelessWidget {
         ),
       ),
       body: BlocBuilder<ReceiptERCBloc, ReceiptERCState>(
-    builder: (context, state) {
-    if (state is ReceiptERCEmpty) {
+        builder: (context, state) {
+          if (state is ReceiptERCEmpty) {
             return SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -126,7 +126,7 @@ class ReceiptERSScreen extends StatelessWidget {
                                           horizontal: 17.0, vertical: 22.0),
                                       decoration: BoxDecoration(
                                         borderRadius:
-                                            BorderRadius.circular(50.0),
+                                        BorderRadius.circular(50.0),
                                         border: Border.all(
                                             color: Color(0xff007AFF),
                                             width: 1.0),
@@ -139,7 +139,7 @@ class ReceiptERSScreen extends StatelessWidget {
                                           decoration: BoxDecoration(
                                             color: Color(0xff054BB5),
                                             borderRadius:
-                                                BorderRadius.circular(30.0),
+                                            BorderRadius.circular(30.0),
                                           ),
                                         ),
                                       ),
@@ -150,7 +150,7 @@ class ReceiptERSScreen extends StatelessWidget {
                                       padding: EdgeInsets.only(top: 16.0),
                                       child: Column(
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                         children: <Widget>[
                                           Text(
                                             "Банковская карта".toUpperCase(),
@@ -324,7 +324,7 @@ class ReceiptERSScreen extends StatelessWidget {
                                           horizontal: 17.0, vertical: 22.0),
                                       decoration: BoxDecoration(
                                         borderRadius:
-                                            BorderRadius.circular(50.0),
+                                        BorderRadius.circular(50.0),
                                         border: Border.all(
                                             color: Color(0xff007AFF),
                                             width: 1.0),
@@ -337,7 +337,7 @@ class ReceiptERSScreen extends StatelessWidget {
                                           decoration: BoxDecoration(
                                             color: Color(0xff054BB5),
                                             borderRadius:
-                                                BorderRadius.circular(30.0),
+                                            BorderRadius.circular(30.0),
                                           ),
                                         ),
                                       ),
@@ -348,7 +348,7 @@ class ReceiptERSScreen extends StatelessWidget {
                                       padding: EdgeInsets.only(top: 16.0),
                                       child: Column(
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                         children: <Widget>[
                                           Text(
                                             "Банковская карта".toUpperCase(),

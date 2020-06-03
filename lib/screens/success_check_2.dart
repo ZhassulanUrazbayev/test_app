@@ -5,13 +5,7 @@ import 'package:testenviroment/widgets/curve_left.dart';
 import 'package:testenviroment/widgets/curve_right.dart';
 import 'package:testenviroment/widgets/dash_line.dart';
 
-class SuccessCheckScreenSecond extends StatefulWidget {
-  @override
-  _SuccessCheckScreenSecondState createState() =>
-      _SuccessCheckScreenSecondState();
-}
-
-class _SuccessCheckScreenSecondState extends State<SuccessCheckScreenSecond> {
+class SuccessCheckScreenSecond extends StatelessWidget {
   final String assetNameRightArrow = 'assets/rightArrowIcon.svg';
   final String assetNameCloseIcon = 'assets/closeIcon.svg';
   final String assetNameDocIcon = 'assets/icFile.svg';
@@ -182,11 +176,11 @@ class _SuccessCheckScreenSecondState extends State<SuccessCheckScreenSecond> {
                       color: Color(0xffD9D9D9),
                     ),
                   ),
-                  reportLineItem("С баланса", "Корректировка долга DMC00000134 от 30.04.2020 14:22:26"),
+                  reportLineItem("С баланса", "Корректировка долга DMC00000134 от 30.04.2020 14:22:26", context),
                   SizedBox(
                     height: 16.0,
                   ),
-                  reportLineItem("С баланса", "44888"),
+                  reportLineItem("С баланса", "44888", context),
                   SizedBox(
                     height: 48.0,
                   ),
@@ -199,7 +193,7 @@ class _SuccessCheckScreenSecondState extends State<SuccessCheckScreenSecond> {
     );
   }
 
-  Widget reportLineItem(String title, String value) {
+  Widget reportLineItem(String title, String value, BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
