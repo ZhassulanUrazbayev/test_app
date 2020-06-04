@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:testenviroment/bloc/current_payment/current_payment_bloc.dart';
 import 'package:testenviroment/widgets/dash_line_for_sum.dart';
 
 class CurrentPaymentScreen extends StatelessWidget {

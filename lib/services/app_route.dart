@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:testenviroment/bloc/ERC/ERC_bloc.dart';
 import 'package:testenviroment/bloc/card/card_bloc.dart';
-import 'package:testenviroment/bloc/current_payment/current_payment_bloc.dart';
 import 'package:testenviroment/bloc/receiptERC/receiptERC_bloc.dart';
 import 'package:testenviroment/bloc/receiptERCMonths/receiptERCMonths_bloc.dart';
 import 'package:testenviroment/bloc/selectPeriod/select_period_bloc.dart';
@@ -23,7 +22,6 @@ class AppRouter {
   final _receiptERCMonthsBloc = ReceiptERCMonthsBloc();
   final _ERCBloc = ERCBloc();
   final _selectPeriodBloc = SelectPeriodBloc();
-  final _currentPaymentBloc = CurrentPaymentBloc();
 
   Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
