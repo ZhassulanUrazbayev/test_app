@@ -116,7 +116,7 @@ class ReceiptERSScreen extends StatelessWidget {
                                   GestureDetector(
                                     onTap: () {
                                       receiptERCBloc.add(SelectCard(
-                                          index, state.cards[index]));
+                                          index));
                                     },
                                     child: Container(
                                       width: 24.0,
@@ -209,22 +209,22 @@ class ReceiptERSScreen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: new EdgeInsets.symmetric(
+                    padding: EdgeInsets.symmetric(
                       horizontal: 16.0,
                       vertical: 40.0,
                     ),
                     child: SizedBox(
                       width: double.infinity,
-                      child: new RaisedButton(
+                      child: RaisedButton(
                         onPressed: () {
                           Navigator.of(context).pushNamed('/ERSScreen');
                         },
-                        color: new Color(0xff054BB5),
+                        color: Color(0xff054BB5),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
-                        child: new Padding(
-                          padding: new EdgeInsets.all(16.0),
-                          child: new Text(
+                        child: Padding(
+                          padding: EdgeInsets.all(16.0),
+                          child: Text(
                             "Оплатить 15 819,25 ₸",
                             style: TextStyle(
                               fontSize: 17.0,
@@ -314,7 +314,7 @@ class ReceiptERSScreen extends StatelessWidget {
                                   GestureDetector(
                                     onTap: () {
                                       receiptERCBloc.add(SelectCard(
-                                          index, state.cards[index]));
+                                          index));
                                     },
                                     child: Container(
                                       width: 24.0,
@@ -407,22 +407,22 @@ class ReceiptERSScreen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: new EdgeInsets.symmetric(
+                    padding: EdgeInsets.symmetric(
                       horizontal: 16.0,
                       vertical: 40.0,
                     ),
                     child: SizedBox(
                       width: double.infinity,
-                      child: new RaisedButton(
+                      child: RaisedButton(
                         onPressed: () {
                           Navigator.of(context).pushNamed('/ERSScreen');
                         },
-                        color: new Color(0xff054BB5),
+                        color: Color(0xff054BB5),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
-                        child: new Padding(
-                          padding: new EdgeInsets.all(16.0),
-                          child: new Text(
+                        child: Padding(
+                          padding: EdgeInsets.all(16.0),
+                          child: Text(
                             "Оплатить 15 819,25 ₸",
                             style: TextStyle(
                               fontSize: 17.0,
@@ -440,22 +440,20 @@ class ReceiptERSScreen extends StatelessWidget {
             );
           }
           return Padding(
-            padding: new EdgeInsets.symmetric(
+            padding: EdgeInsets.symmetric(
               horizontal: 16.0,
               vertical: 40.0,
             ),
             child: SizedBox(
               width: double.infinity,
-              child: new RaisedButton(
-                onPressed: () {
-//                        cardsBloc.add(AddCard());
-                },
-                color: new Color(0xff054BB5),
+              child: RaisedButton(
+                onPressed: () {},
+                color: Color(0xff054BB5),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
-                child: new Padding(
-                  padding: new EdgeInsets.all(16.0),
-                  child: new Text(
+                child: Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text(
                     "Оплатить 15 819,25 ₸",
                     style: TextStyle(
                       fontSize: 17.0,
@@ -530,7 +528,7 @@ class ReceiptERSScreen extends StatelessWidget {
   }
 
   Widget divider() {
-    return new Container(
+    return Container(
       height: 1.0,
       decoration: BoxDecoration(
         border: Border(

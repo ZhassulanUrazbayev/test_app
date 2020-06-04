@@ -89,7 +89,7 @@ class AddCardFirstScreen extends StatelessWidget {
                               children: <Widget>[
                                 GestureDetector(
                                   onTap: (){
-                                    cardsBloc.add(SelectCard(index, state.cards[index]));
+                                    cardsBloc.add(SelectCard(index));
                                   },
                                   child:  Container(
                                     width: 24.0,

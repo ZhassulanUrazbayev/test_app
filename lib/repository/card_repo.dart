@@ -14,7 +14,7 @@ class CardsRepository {
     return _cardsList;
   }
 
-  Future<List<CardItem>> selectCard(int index, CardItem item) async {
+  Future<List<CardItem>> selectCard(int index) async {
 
     if (_lastIndex == -1) {
       _cardsList[index].isSelected = !_cardsList[index].isSelected;

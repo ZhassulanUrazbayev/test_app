@@ -26,7 +26,7 @@ class CardsBloc extends Bloc<CardsEvent, CardsState> {
     if(event is SelectCard){
       yield CardsSelecting();
       try {
-        final List<CardItem> cards = await cardsRepository.selectCard(event.index, event.item);
+        final List<CardItem> cards = await cardsRepository.selectCard(event.index);
         yield CardsList(cards: cards);
       } catch (_) {
         yield CardsError();

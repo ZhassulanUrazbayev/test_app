@@ -14,9 +14,8 @@ class AddCard extends CardsEvent {
 
 class SelectCard extends CardsEvent {
   final int index;
-  final CardItem item;
 
-  const SelectCard(this.index, this.item);
+  const SelectCard(this.index);
 
   @override
   List<Object> get props => [];

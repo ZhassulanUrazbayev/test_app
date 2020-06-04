@@ -7,7 +7,7 @@ class ReceiptERCRepository {
     CardItem(cardNumber: "0015", isSelected: false)
   ];
 
-  Future<List<CardItem>> selectCard(int index, CardItem item) async {
+  Future<List<CardItem>> selectCard(int index) async {
     for (int i = 0; i < _cardsList.length; i++) {
       if(i == index){
         _cardsList[i].isSelected = !_cardsList[i].isSelected;

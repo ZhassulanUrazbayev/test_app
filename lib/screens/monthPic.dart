@@ -10,14 +10,6 @@ import 'package:testenviroment/widgets/custom_expantion_tile.dart' as custom;
 class MonthPicScreen extends StatelessWidget {
   final String assetNameLeftArrow = 'assets/Arrow.svg';
 
-  final String assetNameLeftArrowGrey = 'assets/rightArrowGrey.svg';
-
-  final String assetNameBottomArrow = 'assets/bottomArrow.svg';
-
-  final String assetNameTopArrow = 'assets/topArrow.svg';
-
-  bool isExpanded = false;
-
   @override
   Widget build(BuildContext context) {
     final ReceiptERCMonthsBloc receiptERCMonthsBloc =
@@ -204,22 +196,22 @@ class MonthPicScreen extends StatelessWidget {
                           );
                         }),
                     Padding(
-                      padding: new EdgeInsets.symmetric(
+                      padding: EdgeInsets.symmetric(
                         horizontal: 16.0,
                         vertical: 40.0,
                       ),
                       child: SizedBox(
                         width: double.infinity,
-                        child: new RaisedButton(
+                        child: RaisedButton(
                           onPressed: () {
                             Navigator.of(context).pushNamed('/receiptERSScreen');
                           },
-                          color: new Color(0xff054BB5),
+                          color: Color(0xff054BB5),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
-                          child: new Padding(
-                            padding: new EdgeInsets.all(16.0),
-                            child: new Text(
+                          child: Padding(
+                            padding: EdgeInsets.all(16.0),
+                            child: Text(
                               "Открыть квитанцию",
                               style: TextStyle(
                                 fontSize: 17.0,
@@ -388,22 +380,22 @@ class MonthPicScreen extends StatelessWidget {
                           );
                         }),
                     Padding(
-                      padding: new EdgeInsets.symmetric(
+                      padding: EdgeInsets.symmetric(
                         horizontal: 16.0,
                         vertical: 40.0,
                       ),
                       child: SizedBox(
                         width: double.infinity,
-                        child: new RaisedButton(
+                        child: RaisedButton(
                           onPressed: () {
                             Navigator.of(context).pushNamed('/receiptERSScreen');
                           },
-                          color: new Color(0xff054BB5),
+                          color: Color(0xff054BB5),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
-                          child: new Padding(
-                            padding: new EdgeInsets.all(16.0),
-                            child: new Text(
+                          child: Padding(
+                            padding: EdgeInsets.all(16.0),
+                            child: Text(
                               "Открыть квитанцию",
                               style: TextStyle(
                                 fontSize: 17.0,
@@ -425,7 +417,7 @@ class MonthPicScreen extends StatelessWidget {
 }
 
 Widget divider() {
-  return new Container(
+  return Container(
     height: 1.0,
     decoration: BoxDecoration(
       border: Border(

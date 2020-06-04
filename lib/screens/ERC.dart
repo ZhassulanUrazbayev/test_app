@@ -101,9 +101,7 @@ class _ERSScreenState extends State<ERSScreen> {
                                        trackColor: Color(0xffE5E5EA),
                                        value: state.cards[index].isSelected,
                                        onChanged: (bool value) {
-                                         setState(() {
                                            ersBloc.add(SelectItem(index));
-                                         });
                                        },
                                      ),
                                    ],
@@ -120,22 +118,22 @@ class _ERSScreenState extends State<ERSScreen> {
                          );
                        }),
                    Padding(
-                     padding: new EdgeInsets.symmetric(
+                     padding: EdgeInsets.symmetric(
                        horizontal: 16.0,
                        vertical: 19.0,
                      ),
                      child: SizedBox(
                        width: double.infinity,
-                       child: new RaisedButton(
+                       child: RaisedButton(
                          onPressed: () {
                            Navigator.of(context).pushNamed('/paymentPlanScreen');
                          },
-                         color: new Color(0xff054BB5),
+                         color: Color(0xff054BB5),
                          shape: RoundedRectangleBorder(
                              borderRadius: BorderRadius.circular(10)),
-                         child: new Padding(
-                           padding: new EdgeInsets.all(16.0),
-                           child: new Text(
+                         child: Padding(
+                           padding: EdgeInsets.all(16.0),
+                           child: Text(
                              "К оплате 15000.0 ₸",
                              style: TextStyle(
                                fontSize: 17.0,
@@ -202,10 +200,8 @@ class _ERSScreenState extends State<ERSScreen> {
                                         activeColor: Color(0xff4CD964),
                                         trackColor: Color(0xffE5E5EA),
                                         value: state.items[index].isSelected,
-                                        onChanged: (bool value) {
-                                          setState(() {
+                                        onChanged: (_) {
                                             ersBloc.add(SelectItem(index));
-                                          });
                                         },
                                       ),
                                     ],
@@ -222,22 +218,22 @@ class _ERSScreenState extends State<ERSScreen> {
                           );
                         }),
                     Padding(
-                      padding: new EdgeInsets.symmetric(
+                      padding: EdgeInsets.symmetric(
                         horizontal: 16.0,
                         vertical: 19.0,
                       ),
                       child: SizedBox(
                         width: double.infinity,
-                        child: new RaisedButton(
+                        child: RaisedButton(
                           onPressed: () {
                             Navigator.of(context).pushNamed('/paymentPlanScreen');
                           },
-                          color: new Color(0xff054BB5),
+                          color: Color(0xff054BB5),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
-                          child: new Padding(
-                            padding: new EdgeInsets.all(16.0),
-                            child: new Text(
+                          child: Padding(
+                            padding: EdgeInsets.all(16.0),
+                            child: Text(
                               "К оплате ${state.sum} ₸",
                               style: TextStyle(
                                 fontSize: 17.0,
@@ -319,7 +315,7 @@ class _ERSScreenState extends State<ERSScreen> {
   }
 
   Widget divider() {
-    return new Container(
+    return Container(
       height: 1.0,
       decoration: BoxDecoration(
         border: Border(

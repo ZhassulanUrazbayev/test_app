@@ -17,7 +17,7 @@ class ReceiptERCBloc extends Bloc<ReceiptERCEvent, ReceiptERCState> {
     if(event is SelectCard){
       yield ReceiptERCCardsSelecting();
       try {
-        final List<CardItem> cards = await receiptERCRepository.selectCard(event.index, event.item);
+        final List<CardItem> cards = await receiptERCRepository.selectCard(event.index);
         yield ReceiptERCCardsList(cards: cards);
       } catch (_) {
         yield ReceiptERCError();

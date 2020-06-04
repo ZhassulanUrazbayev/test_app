@@ -7,9 +7,8 @@ abstract class ReceiptERCEvent extends Equatable {
 
 class SelectCard extends ReceiptERCEvent {
   final int index;
-  final CardItem item;
 
-  const SelectCard(this.index, this.item);
+  const SelectCard(this.index);
 
   @override
   List<Object> get props => [];

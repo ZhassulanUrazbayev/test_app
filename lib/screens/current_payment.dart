@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:testenviroment/bloc/current_payment/current_payment_bloc.dart';
 import 'package:testenviroment/widgets/dash_line_for_sum.dart';
 
-class CurrentPaymentScreen extends StatefulWidget {
-  @override
-  _CurrentPaymentScreenState createState() => _CurrentPaymentScreenState();
-}
-
-class _CurrentPaymentScreenState extends State<CurrentPaymentScreen> {
+class CurrentPaymentScreen extends StatelessWidget {
   final String assetNameLeftArrow = 'assets/Arrow.svg';
-  final String assetNameLeftArrowGrey = 'assets/rightArrowGrey.svg';
   final String assetNameCloseGrey = 'assets/closeGrey.svg';
   bool lights = false;
 
@@ -24,7 +20,7 @@ class _CurrentPaymentScreenState extends State<CurrentPaymentScreen> {
         leading: Padding(
           padding: EdgeInsets.all(17.0),
           child: GestureDetector(
-            onTap: (){
+            onTap: () {
               Navigator.of(context).pop();
             },
             child: SvgPicture.asset(assetNameLeftArrow,
@@ -99,81 +95,107 @@ class _CurrentPaymentScreenState extends State<CurrentPaymentScreen> {
             SizedBox(
               height: 33.0,
             ),
-            Row(
-              children: <Widget>[
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      print(lights.toString());
-                      lights = !lights;
-                      print(lights.toString());
-                    });
-                  },
-                  child: Container(
-                    width: 24.0,
-                    height: 24.0,
-                    decoration: BoxDecoration(
-                        color: lights ? Color(0xff054BB5) : Colors.transparent,
-                        borderRadius: BorderRadius.circular(8.0),
-                        border: Border(
-                          top: BorderSide(width: 1.0, color: Color(0xff054BB5)),
-                          left:
-                          BorderSide(width: 1.0, color: Color(0xff054BB5)),
-                          right:
-                          BorderSide(width: 1.0, color: Color(0xff054BB5)),
-                          bottom:
-                          BorderSide(width: 1.0, color: Color(0xff054BB5)),
-                        )),
-                    child: lights
-                        ? Icon(
-                      Icons.check,
-                      size: 22.0,
-                      color: Colors.white,
-                    )
-                        : Container(),
-                  ),
-                ),
-                SizedBox(
-                  width: 8.0,
-                ),
-                Flexible(
-                  child: Text(
-                    "Я принимаю условия соглашения",
-                    style: TextStyle(
-                        decoration: TextDecoration.underline,
-                        fontSize: 15.0,
-                        letterSpacing: -0.165,
-                        color: Color(0xff054BB5)),
-                  ),
-                )
-              ],
-            ),
-            SizedBox(
-              height: 22.0,
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: RaisedButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/selectPeriodScreen');
-                },
-                color: lights ? Color(0xff054BB5) : Color(0xffEFEFF4),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                child: Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Text(
-                    "Оплатить",
-                    style: TextStyle(
-                      fontSize: 17.0,
-                      fontWeight: FontWeight.w500,
-                      color: lights ? Colors.white : Color(0xff777777),
-                      letterSpacing: -0.165,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            StatefulBuilder(
+                builder: (BuildContext context, StateSetter setState) {
+                  return Column(
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                this.lights = !lights;
+                              });
+                            },
+                            child: Container(
+                              width: 24.0,
+                              height: 24.0,
+                              decoration: BoxDecoration(
+                                  color: lights
+                                      ? Color(0xff054BB5)
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  border: Border(
+                                    top: BorderSide(
+                                        width: 1.0, color: Color(0xff054BB5)),
+                                    left: BorderSide(
+                                        width: 1.0, color: Color(0xff054BB5)),
+                                    right: BorderSide(
+                                        width: 1.0, color: Color(0xff054BB5)),
+                                    bottom: BorderSide(
+                                        width: 1.0, color: Color(0xff054BB5)),
+                                  )),
+                              child: lights
+                                  ? Icon(
+                                Icons.check,
+                                size: 22.0,
+                                color: Colors.white,
+                              )
+                                  : Container(),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 8.0,
+                          ),
+                          Flexible(
+                            child: Text(
+                              "Я принимаю условия соглашения",
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 15.0,
+                                  letterSpacing: -0.165,
+                                  color: Color(0xff054BB5)),
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 22.0,
+                      ),
+                      SizedBox(
+                        width: double.infinity,
+                        child: RaisedButton(
+                          onPressed: () {
+                            lights ? Navigator.of(context).pushNamed('/selectPeriodScreen') :
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context){
+                                  return AlertDialog(
+                                    content: Text(
+                                        "Для оплаты услуги надо принять условия соглашения"
+                                    ),
+                                    actions: <Widget>[
+                                      FlatButton(
+                                        child: Text("Закрыть"),
+                                        onPressed: (){
+                                          Navigator.of(context).pop();
+                                        },
+                                      )
+                                    ],
+                                  );
+                                }
+                            );
+                          },
+                          color: lights ? Color(0xff054BB5) : Color(0xffEFEFF4),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Padding(
+                            padding: EdgeInsets.all(16.0),
+                            child: Text(
+                              "Оплатить",
+                              style: TextStyle(
+                                fontSize: 17.0,
+                                fontWeight: FontWeight.w500,
+                                color: lights ? Colors.white : Color(0xff777777),
+                                letterSpacing: -0.165,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                }),
           ],
         ),
       ),

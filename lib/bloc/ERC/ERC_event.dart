@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:testenviroment/model/ERC_model.dart';
 
 abstract class ERCEvent extends Equatable {
   const ERCEvent();

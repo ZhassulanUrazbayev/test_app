@@ -6,9 +6,7 @@ import 'package:testenviroment/widgets/curve_right.dart';
 import 'package:testenviroment/widgets/dash_line.dart';
 
 class SuccessCheckScreenSecond extends StatelessWidget {
-  final String assetNameRightArrow = 'assets/rightArrowIcon.svg';
   final String assetNameCloseIcon = 'assets/closeIcon.svg';
-  final String assetNameDocIcon = 'assets/icFile.svg';
 
   @override
   Widget build(BuildContext context) {
@@ -129,7 +127,7 @@ class SuccessCheckScreenSecond extends StatelessWidget {
                         color: Colors.grey.withOpacity(0.2),
                         spreadRadius: 0,
                         blurRadius: 1,
-                        offset: Offset(1, 1), // changes position of shadow
+                        offset: Offset(2, 5), // changes position of shadow
                       ),
                     ],
                   ),

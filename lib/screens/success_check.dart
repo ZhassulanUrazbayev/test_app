@@ -6,15 +6,14 @@ import 'package:testenviroment/widgets/curve_right.dart';
 import 'package:testenviroment/widgets/dash_line.dart';
 
 class SuccessCheckScreen extends StatelessWidget {
-  final String assetNameRightArrow = 'assets/rightArrowIcon.svg';
   final String assetNameCloseIcon = 'assets/closeIcon.svg';
   final String assetNameDocIcon = 'assets/icFile.svg';
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
-      appBar: new AppBar(
+      appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.white,
         actions: <Widget>[
@@ -128,7 +127,7 @@ class SuccessCheckScreen extends StatelessWidget {
                         color: Colors.grey.withOpacity(0.2),
                         spreadRadius: 0,
                         blurRadius: 1,
-                        offset: Offset(1, 1), // changes position of shadow
+                        offset: Offset(2, 5), // changes position of shadow
                       ),
                     ],
                   ),
@@ -246,20 +245,20 @@ class SuccessCheckScreen extends StatelessWidget {
   }
 
   Widget reportLineItem(String title, String value) {
-    return new Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        new Text(
+        Text(
           title,
-          style: new TextStyle(
+          style: TextStyle(
             fontSize: 15.0,
             letterSpacing: -0.41,
             color: Color(0xff777777),
           ),
         ),
-        new Text(
+        Text(
           "$value",
-          style: new TextStyle(
+          style: TextStyle(
             fontSize: 15.0,
             color: Color(0xff333333),
           ),
@@ -274,16 +273,16 @@ class SuccessCheckScreen extends StatelessWidget {
         .replaceAllMapped(RegExp(r"\d{3}$"), (match) => " ${match.group(0)}")
         .trim();
 
-    return new Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        new Text(
+        Text(
           "Итог",
-          style: new TextStyle(color: Color(0xff777777), fontSize: 24.0),
+          style: TextStyle(color: Color(0xff777777), fontSize: 24.0),
         ),
-        new Text(
+        Text(
           "$amountFormatted ₸",
-          style: new TextStyle(
+          style: TextStyle(
             color: Color(0xff333333),
             fontWeight: FontWeight.bold,
             fontSize: 24.0,
@@ -294,21 +293,21 @@ class SuccessCheckScreen extends StatelessWidget {
   }
 
   Widget reportLineSecondary(String title, String value) {
-    return new Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        new Text(
+        Text(
           title,
-          style: new TextStyle(
+          style: TextStyle(
             fontSize: 15.0,
             letterSpacing: -0.41,
             fontWeight: FontWeight.w500,
             color: Color(0xff777777),
           ),
         ),
-        new Text(
+        Text(
           "$value ₸",
-          style: new TextStyle(
+          style: TextStyle(
             fontSize: 15.0,
             fontWeight: FontWeight.bold,
             letterSpacing: -0.41,
